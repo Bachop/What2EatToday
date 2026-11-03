@@ -1,0 +1,44 @@
+# 默认忽略全部文件，仅允许提交运行、构建所需源码和必要说明文档。
+# 新增必要资源或构建文件时，必须在此显式加入白名单。
+*
+
+# Git 规则、项目说明、依赖与构建配置、启动入口。
+!/.gitignore
+!/README.md
+!/pyproject.toml
+!/requirements.txt
+!/main.py
+!/run.bat
+
+# 应用源码；目录单独放行，以便 Git 递归查找 Python 文件。
+!/what2eat/
+!/what2eat/**/
+!/what2eat/**/*.py
+
+# 必要设计说明。
+!/docs/
+!/docs/algorithm.md
+
+# 即使位于源码目录内，下列中间产物也禁止提交。
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.cache/
+**/.venv/
+**/venv/
+**/.tox/
+**/.nox/
+**/build/
+**/dist/
+**/artifacts/
+**/*.egg-info/
+**/.eggs/
+**/.git/
+*.py[cod]
+*$py.class
+*_generated.py
+*_pb2.py
+*_pb2_grpc.py
+ui_*.py
+*_rc.py
